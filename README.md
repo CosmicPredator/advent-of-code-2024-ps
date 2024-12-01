@@ -7,7 +7,7 @@
     ```
 - Open powershell and run the `runner.ps1` file.
     ```powershell
-    PS C:/> ./runner.ps1
+    PS C:\> ./runner.ps1
     ```
 - Go to [Advent of Code Website](https://adventofcode.com/) and open the browser dev tools.
 - Go to `Application` tab and look for a section called `Cookies`.
