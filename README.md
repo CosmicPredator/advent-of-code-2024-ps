@@ -11,5 +11,5 @@
 
 | Solution        | Time Taken (ms) |
 | :-------------: | :-------------: |
-|Day 1 Part 1     | 54.135          |
-|Day 1 Part 2     | 41.0155         |
+|Day 1 Part 1     | 35.8634         |
+|Day 1 Part 2     | 29.5198         |
