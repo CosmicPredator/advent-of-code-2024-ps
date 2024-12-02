@@ -1,5 +1,6 @@
 . .\helper.ps1
 
+# A Helper Cmdlet to compare 2 lists by order
 function Compare-Lists {
     param (
         [int[]]$InputList,
@@ -13,6 +14,8 @@ function Compare-Lists {
     return $true
 }
 
+# Helper function to check if the array is arithmetic progressively
+# sorted and difference (d) doesn't exceed 3 and or less than 1
 function Check-Progression {
     param (
         [int[]]$InputList
@@ -38,6 +41,8 @@ function Check-Progression {
     return ($sorted -and $progressed)
 }
 
+# Tolerator function for part 2 where the safe condition is checked
+# by removing every single level from list.
 function Tolerate-Input {
     param (
         [int[]]$InputList
@@ -64,6 +69,7 @@ function Tolerate-Input {
     return $count
 }
 
+# Runner function
 function Day2Part1 {
     param (
         [PSCustomObject]$InputString
@@ -79,6 +85,7 @@ function Day2Part1 {
     return $count
 }
 
+# Runner function
 function Day2Part2 {
     param (
         [PSCustomObject]$InputString
