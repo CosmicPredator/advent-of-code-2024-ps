@@ -1,16 +1,15 @@
 . .\helper.ps1
 
-function Part1 {
-
-    # Reads file contents as string
-    # Refer file_reader.ps1
-    $inputString = Read-File -FileName ./input/day_1.txt
+function Day1Part1 {
+    param (
+        [PSCustomObject]$InputString
+    )
 
     $leftList = @()
     $rightList = @()
 
     # Parse the input and inflate to the lists
-    foreach ($inputItem in $inputString) {
+    foreach ($inputItem in $InputString) {
         $splitData = $inputItem -split "\s+"
         $leftList += [System.Convert]::ToInt32($splitData[0])
         $rightList += [System.Convert]::ToInt32($splitData[1])
@@ -32,18 +31,17 @@ function Part1 {
     return $accum
 }
 
-function Part2 {
-
-    # Reads file contents as string
-    # Refer file_reader.ps1
-    $inputString = Read-File -FileName ./input/day_1.txt
+function Day1Part2 {
+    param (
+        [PSCustomObject]$InputString
+    )
 
     # Initialize two empty list for right and left elements
     $leftList = @()
     $rightList = @()
 
     # Parse the input and inflate to the lists
-    foreach ($inputItem in $inputString) {
+    foreach ($inputItem in $InputString) {
         $splitData = $inputItem -split "\s+"
         $leftList += [System.Convert]::ToInt32($splitData[0])
         $rightList += [System.Convert]::ToInt32($splitData[1])
@@ -76,17 +74,21 @@ function Part2 {
 
 # The scoped runner
 function ExecuteDay1 {
+    # Reads file contents as string
+    # Refer file_reader.ps1
+    $day1Input = Read-File -FileName ./input/day_1.txt
+
     $timer = New-Object ExecutionTimer
     $result = @()
 
     $timer.Start()
-    $sol1 = Part1
+    $sol1 = Day1Part1 -InputString $day1Input
     $timer.Stop()
 
     $result += [SolutionObject]::new("Day 1 Part 1", $sol1, "$($timer.GetExecutionTime())")
 
     $timer.Start()
-    $sol2 = Part2
+    $sol2 = Day1Part2 -InputString $day1Input
     $timer.Stop()
 
     $result += [SolutionObject]::new("Day 1 Part 2", $sol2, "$($timer.GetExecutionTime())")

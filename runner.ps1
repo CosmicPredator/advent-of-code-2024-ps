@@ -1,7 +1,7 @@
 . .\solutions\day_1.ps1
+. .\solutions\day_2.ps1
 
-
-$global:numDaysCompleted = 1
+$global:numDaysCompleted = 2
 $global:inputFilesDir = "input/"
 
 
@@ -21,6 +21,9 @@ function CreateInputDir {
 
 
 function DownloadInputs {
+    Write-Host "Downloading Inputs..." -ForegroundColor Cyan
+    Write-Host "=====================" -ForegroundColor Cyan
+
     for ($i = 0; $i -lt $numDaysCompleted; $i++) {
         $inputRequestUrl = "https://adventofcode.com/2024/day/$($i + 1)/input"
         $headers = @{
@@ -41,6 +44,7 @@ class SolutionRunner {
 
     [void] RunSolutions() {
         $this.ResultsObj += ExecuteDay1
+        $this.ResultsObj += ExecuteDay2
     }
 
     [void] InitRunner() {
@@ -52,6 +56,9 @@ class SolutionRunner {
 
 $runner = New-Object SolutionRunner
 $runner.InitRunner()
+
+Write-Host "Solving..." -ForegroundColor Cyan
+Write-Host "==========" -ForegroundColor Cyan
 $runner.RunSolutions()
 
 $runner.ResultsObj | Format-Table -AutoSize
